@@ -239,7 +239,7 @@ public class ClienteNuevo extends View implements IView{
             map.put("fecha",fecha);
             map.put("puntos",puntos);
                   
-            db.insertar("cliente", map);
+            db.insertar("cliente", map);    
             
            /* ArrayList<ArrayList> map = new ArrayList();
             ArrayList<String> map2 = new ArrayList();
