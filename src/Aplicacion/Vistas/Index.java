@@ -6,6 +6,7 @@ import System.DataBase.Core.DataBase;
 import System.Helper.IO;
 import System.MVC.Core.IView;
 import System.MVC.Core.View;
+import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JComponent;
@@ -43,6 +44,11 @@ public class Index extends View implements IView{
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -67,6 +73,17 @@ public class Index extends View implements IView{
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
+
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
 
         jLabel1.setText("NICK");
 
@@ -75,6 +92,11 @@ public class Index extends View implements IView{
         jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField2ActionPerformed(evt);
+            }
+        });
+        jPasswordField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField2KeyPressed(evt);
             }
         });
 
@@ -161,6 +183,10 @@ public class Index extends View implements IView{
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        LoginAdmin();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void LoginAdmin(){
         
         boolean b1 = IO.textfield_requerido(jTextField1,jPasswordField1);
         
@@ -190,10 +216,7 @@ public class Index extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    
+    }
     
     
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -207,25 +230,48 @@ public class Index extends View implements IView{
     }//GEN-LAST:event_jPasswordField2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+        LoginVIP();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jPasswordField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField2KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            LoginVIP();
+        }
+    }//GEN-LAST:event_jPasswordField2KeyPressed
+
+    private void LoginVIP(){
         boolean b1 = IO.textfield_requerido(jPasswordField2);
-        
-        if (b1){
-            if(jPasswordField2.getText().equals("onichandaisuki")){
-                new Vip();
-                this.dispose();
+
+            if (b1){
+                if(jPasswordField2.getText().equals("onichandaisuki")){
+                    new Vip();
+                    this.dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "MasterKey erronea, Baka!");      
+                }  
             }
             else{
-                JOptionPane.showMessageDialog(null, "MasterKey erronea, Baka!");      
-            }  
+                JOptionPane.showMessageDialog(null, "Ingrese la MasterKey en el campo");
+            }
+        
+    }
+    
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formKeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            LoginAdmin();
         }
-        else{
-            JOptionPane.showMessageDialog(null, "Ingrese la MasterKey en el campo");
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            LoginAdmin();
         }
-        
-        
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jPasswordField1KeyPressed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -8,6 +8,7 @@ import System.Helper.IO;
 import System.MVC.Core.IView;
 import System.MVC.Core.View;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -202,6 +203,18 @@ public class Administrador extends View implements IView{
             }
         });
 
+        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField10KeyPressed(evt);
+            }
+        });
+
+        jTextField11.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField11KeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -252,9 +265,20 @@ public class Administrador extends View implements IView{
 
         jLabel20.setText("Nombre");
 
+        jTextField13.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField13KeyPressed(evt);
+            }
+        });
+
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField14ActionPerformed(evt);
+            }
+        });
+        jTextField14.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField14KeyPressed(evt);
             }
         });
 
@@ -268,6 +292,11 @@ public class Administrador extends View implements IView{
         jTextField17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField17ActionPerformed(evt);
+            }
+        });
+        jTextField17.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField17KeyPressed(evt);
             }
         });
 
@@ -321,9 +350,21 @@ public class Administrador extends View implements IView{
 
         jTabbedPane3.addTab("Agregar Empleado", jPanel8);
 
+        jTextField15.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField15KeyPressed(evt);
+            }
+        });
+
         jLabel23.setText("Cedula");
 
         jLabel24.setText("Confirmar Cedula");
+
+        jTextField16.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField16KeyPressed(evt);
+            }
+        });
 
         jButton7.setText("Eliminar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -370,6 +411,17 @@ public class Administrador extends View implements IView{
 
         jTabbedPane3.addTab("Eliminar Empleado", jPanel10);
 
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+        jTextField18.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField18KeyPressed(evt);
+            }
+        });
+
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("INGRESE LOS DATOS CONOCIDOS");
@@ -377,6 +429,12 @@ public class Administrador extends View implements IView{
         jLabel25.setText("Cedula");
 
         jLabel26.setText("Nombre");
+
+        jTextField19.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField19KeyPressed(evt);
+            }
+        });
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Desconocido","Activo", "Inactivo", "Despedido"}));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -391,6 +449,12 @@ public class Administrador extends View implements IView{
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
+            }
+        });
+
+        jTextField20.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField20KeyPressed(evt);
             }
         });
 
@@ -481,7 +545,31 @@ public class Administrador extends View implements IView{
 
         jLabel7.setText("Password");
 
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField5KeyPressed(evt);
+            }
+        });
+
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField6KeyPressed(evt);
+            }
+        });
+
         jLabel8.setText("Confirmar Password");
+
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
+
+        jPasswordField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField2KeyPressed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Administrador","Comun"}));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -513,7 +601,7 @@ public class Administrador extends View implements IView{
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel9))
-                                .addGap(135, 135, 135)
+                                .addGap(141, 141, 141)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPasswordField2)
                                     .addComponent(jComboBox1, 0, 126, Short.MAX_VALUE)
@@ -529,7 +617,7 @@ public class Administrador extends View implements IView{
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(181, 181, 181)
                         .addComponent(jButton2)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -563,12 +651,24 @@ public class Administrador extends View implements IView{
 
         jLabel10.setText("Nick");
 
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField7KeyPressed(evt);
+            }
+        });
+
         jLabel13.setText("Confirmar Nick");
 
         jButton4.setText("Eliminar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+
+        jTextField8.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField8KeyPressed(evt);
             }
         });
 
@@ -610,6 +710,12 @@ public class Administrador extends View implements IView{
 
         jTabbedPane2.addTab("Eliminar Usuario", jPanel6);
 
+        jTextField9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField9KeyPressed(evt);
+            }
+        });
+
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("INGRESE LOS DATOS CONOCIDOS");
@@ -617,6 +723,12 @@ public class Administrador extends View implements IView{
         jLabel15.setText("Nick");
 
         jLabel17.setText("Nombre");
+
+        jTextField12.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField12KeyPressed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Desconocido", "Administrador", "Comun"}));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -704,6 +816,18 @@ public class Administrador extends View implements IView{
 
         jLabel31.setText("Descripcion");
 
+        jTextField21.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField21KeyPressed(evt);
+            }
+        });
+
+        jTextField22.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField22KeyPressed(evt);
+            }
+        });
+
         jLabel33.setText("Precio base");
 
         jButton5.setText("Registrar");
@@ -715,7 +839,18 @@ public class Administrador extends View implements IView{
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextArea1KeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTextArea1);
+
+        jTextField27.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField27KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -775,12 +910,24 @@ public class Administrador extends View implements IView{
 
         jLabel34.setText("Codigo");
 
+        jTextField23.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField23KeyPressed(evt);
+            }
+        });
+
         jLabel35.setText("Confirmar Codigo");
 
         jButton6.setText("Eliminar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
+            }
+        });
+
+        jTextField24.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField24KeyPressed(evt);
             }
         });
 
@@ -822,6 +969,12 @@ public class Administrador extends View implements IView{
 
         jTabbedPane4.addTab("Eliminar Producto", jPanel15);
 
+        jTextField25.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField25KeyPressed(evt);
+            }
+        });
+
         jLabel36.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel36.setText("INGRESE LOS DATOS CONOCIDOS");
@@ -829,6 +982,12 @@ public class Administrador extends View implements IView{
         jLabel37.setText("Codigo");
 
         jLabel38.setText("Nombre");
+
+        jTextField26.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField26KeyPressed(evt);
+            }
+        });
 
         jButton12.setText("Buscar");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -838,6 +997,12 @@ public class Administrador extends View implements IView{
         });
 
         jLabel40.setText("Precio base");
+
+        jTextField28.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField28KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -917,13 +1082,28 @@ public class Administrador extends View implements IView{
         });
 
         jTextField1.setText("jTextField1");
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
+        });
 
         jTextField2.setText("jTextField2");
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
 
         jTextField3.setText("jTextField3");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
+            }
+        });
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField3KeyPressed(evt);
             }
         });
 
@@ -940,9 +1120,8 @@ public class Administrador extends View implements IView{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                        .addComponent(jTextField3)))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(jTextField3))
                 .addGap(166, 166, 166))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(169, 169, 169)
@@ -978,6 +1157,11 @@ public class Administrador extends View implements IView{
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
+            }
+        });
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField4KeyPressed(evt);
             }
         });
 
@@ -1031,7 +1215,11 @@ public class Administrador extends View implements IView{
     
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    
+           BuscarCliente();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void BuscarCliente(){
+        
         boolean b1 = IO.textfield_requerido(jTextField4);
         
         if (b1){
@@ -1050,11 +1238,8 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Ingrese el telefono del cliente");
         }
-        
-        
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    }
+    
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
         new Index();
         this.dispose();
@@ -1069,6 +1254,10 @@ public class Administrador extends View implements IView{
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ActualizarCuenta();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ActualizarCuenta(){
         boolean b1 = IO.textfield_requerido(jTextField3);
         
         if (b1){
@@ -1099,13 +1288,17 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
+    
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        RegistrarUsuario();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void RegistrarUsuario(){
         boolean b1 = IO.textfield_requerido(jTextField5,jPasswordField1,jPasswordField2);
 
         if (b1){
@@ -1159,9 +1352,13 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    }
+    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        EliminarUsuario();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void EliminarUsuario(){
         boolean b1 = IO.textfield_requerido(jTextField7,jTextField8);
 
         if (b1){
@@ -1193,13 +1390,17 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
+    }
+    
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        BuscarUsuario();      
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void BuscarUsuario(){
         String[] cabecera= new String[5];
                 cabecera[0]="nick";
                 cabecera[1]="nombre";
@@ -1358,11 +1559,14 @@ public class Administrador extends View implements IView{
         jTextField9.setText("");
         jTextField12.setText("");
         jComboBox2.setSelectedIndex(0);
-        
-    }//GEN-LAST:event_jButton8ActionPerformed
-
+    }
+    
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //21, 22 y 27 y text area 1
+        RegistrarProducto();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void RegistrarProducto(){
         boolean b1 = IO.textfield_requerido(jTextField21, jTextField22, jTextField27);
         boolean b2 = (jTextArea1.getText().equals("")==false);
         
@@ -1401,9 +1605,13 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
+    }
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        EliminarProducto();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void EliminarProducto(){
         boolean b1 = IO.textfield_requerido(jTextField23,jTextField24);
 
         if (b1){
@@ -1435,10 +1643,15 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
+    }
+    
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // 25, 26 y 28
+        BuscarProducto();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void BuscarProducto(){
+        
         String[] cabecera= new String[4];
                 cabecera[0]="codigo";
                 cabecera[1]="nombre";
@@ -1550,9 +1763,13 @@ public class Administrador extends View implements IView{
         jTextField9.setText("");
         jTextField12.setText("");
         jComboBox2.setSelectedIndex(0);
-    }//GEN-LAST:event_jButton12ActionPerformed
-
+    }
+    
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        BuscarEmpleado();
+    }//GEN-LAST:event_jButton11ActionPerformed
+    
+    private void BuscarEmpleado(){
         String[] cabecera= new String[6];
         cabecera[0]="cedula";
         cabecera[1]="nombre";
@@ -1696,8 +1913,8 @@ public class Administrador extends View implements IView{
         jTextField19.setText("");
         jTextField20.setText("");
         jComboBox3.setSelectedIndex(0);
-    }//GEN-LAST:event_jButton11ActionPerformed
-
+    }
+    
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
@@ -1707,6 +1924,10 @@ public class Administrador extends View implements IView{
     }//GEN-LAST:event_jTextField17ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        AgregarEmpleado();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void AgregarEmpleado(){
         boolean b1 = IO.textfield_requerido(jTextField13);
 
         if (b1){
@@ -1739,13 +1960,17 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos obligatorios");
         }
-    }//GEN-LAST:event_jButton9ActionPerformed
-
+    }
+    
     private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField14ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        RealizarPago();
+    }//GEN-LAST:event_jButton13ActionPerformed
+    
+    private void RealizarPago(){
         boolean b1 = IO.textfield_requerido(jTextField11,jTextField10);
 
         if(b1){
@@ -1776,10 +2001,14 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-    }//GEN-LAST:event_jButton13ActionPerformed
-
+    }
+    
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         //15 y 16
+        EliminarEmpleado();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void EliminarEmpleado(){
         boolean b1 = IO.textfield_requerido(jTextField15,jTextField16);
 
         if (b1){
@@ -1811,7 +2040,197 @@ public class Administrador extends View implements IView{
         else{
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }
+    
+    private void jTextField4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarCliente();
+        }
+    }//GEN-LAST:event_jTextField4KeyPressed
+
+    private void jTextField11KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField11KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RealizarPago();
+        }
+    }//GEN-LAST:event_jTextField11KeyPressed
+
+    private void jTextField10KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RealizarPago();
+        }
+    }//GEN-LAST:event_jTextField10KeyPressed
+
+    private void jTextField13KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField13KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            AgregarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField13KeyPressed
+
+    private void jTextField14KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField14KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            AgregarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField14KeyPressed
+
+    private void jTextField17KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField17KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            AgregarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField17KeyPressed
+
+    private void jTextField15KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField15KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            EliminarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField15KeyPressed
+
+    private void jTextField16KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField16KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            EliminarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField16KeyPressed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jTextField18KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField18KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField18KeyPressed
+
+    private void jTextField19KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField19KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField19KeyPressed
+
+    private void jTextField20KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField20KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarEmpleado();
+        }
+    }//GEN-LAST:event_jTextField20KeyPressed
+
+    private void jTextField5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarUsuario();
+        }
+    }//GEN-LAST:event_jTextField5KeyPressed
+
+    private void jTextField6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarUsuario();
+        }
+    }//GEN-LAST:event_jTextField6KeyPressed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarUsuario();
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jPasswordField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField2KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarUsuario();
+        }
+    }//GEN-LAST:event_jPasswordField2KeyPressed
+
+    private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            EliminarUsuario();
+        }
+    }//GEN-LAST:event_jTextField7KeyPressed
+
+    private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            EliminarUsuario();
+        }
+    }//GEN-LAST:event_jTextField8KeyPressed
+
+    private void jTextField9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField9KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarUsuario();
+        }
+    }//GEN-LAST:event_jTextField9KeyPressed
+
+    private void jTextField12KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField12KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarUsuario();
+        }
+    }//GEN-LAST:event_jTextField12KeyPressed
+
+    private void jTextField21KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField21KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarProducto();
+        }
+    }//GEN-LAST:event_jTextField21KeyPressed
+
+    private void jTextField22KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField22KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarProducto();
+        }
+    }//GEN-LAST:event_jTextField22KeyPressed
+
+    private void jTextArea1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextArea1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarProducto();
+        }
+    }//GEN-LAST:event_jTextArea1KeyPressed
+
+    private void jTextField27KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField27KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            RegistrarProducto();
+        }
+    }//GEN-LAST:event_jTextField27KeyPressed
+
+    private void jTextField23KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField23KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            EliminarProducto();
+        }
+    }//GEN-LAST:event_jTextField23KeyPressed
+
+    private void jTextField24KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField24KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            EliminarProducto();
+        }
+    }//GEN-LAST:event_jTextField24KeyPressed
+
+    private void jTextField25KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField25KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarProducto();
+        }
+    }//GEN-LAST:event_jTextField25KeyPressed
+
+    private void jTextField26KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField26KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarProducto();
+        }
+    }//GEN-LAST:event_jTextField26KeyPressed
+
+    private void jTextField28KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField28KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            BuscarProducto();
+        }
+    }//GEN-LAST:event_jTextField28KeyPressed
+
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            ActualizarCuenta();
+        }
+    }//GEN-LAST:event_jTextField1KeyPressed
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            ActualizarCuenta();
+        }
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            ActualizarCuenta();
+        }
+    }//GEN-LAST:event_jTextField3KeyPressed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1829,7 +2248,7 @@ public class Administrador extends View implements IView{
     private javax.swing.JButton jButton9;
     public javax.swing.JComboBox<String> jComboBox1;
     public javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    public javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
