@@ -51,7 +51,7 @@ public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, Str
                     
                     else if(ventanaObjetivo.equals ("EditarProducto")){
                       
-                        //new EditarProducto((String) puntero);
+                        new EditarProducto((String) puntero);
 
                     }
                     

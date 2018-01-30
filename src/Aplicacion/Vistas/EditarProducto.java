@@ -30,10 +30,10 @@ public class EditarProducto extends View implements IView{
         jTextField1.setText(codigo);
         jTextField1.setEditable(false);
         
-        jTextField2.setText(db.getDato(0,2));
-        jTextField3.setText(db.getDato(0,3));
-        jTextField4.setText(db.getDato(0,4));
-        jComboBox1.setSelectedItem(db.getDato(0,5));
+        jTextField2.setText(db.getDato(0,1));
+        jTextField3.setText(db.getDato(0,2));
+        jTextField4.setText(db.getDato(0,3));
+        jComboBox1.setSelectedItem(db.getDato(0,4));
         
 
         setVisible(true);
@@ -193,37 +193,30 @@ public class EditarProducto extends View implements IView{
         
             
             String nombre=jTextField2.getText();
+            String descripcion=jTextField3.getText();
+            String precioBase=jTextField4.getText();
             
             
             Map<String,String> map = new HashMap();
 
             //map.put("nick", nick);
             map.put("nombre", nombre);
-            map.put("telefono", telefono);
+            map.put("descripcion", descripcion);
+            map.put("precioBase", precioBase);
             
-            if(jComboBox1.getSelectedItem().equals("Activo")){
-                map.put("activo", "1");
-                map.put("inactivo", "0");
-                map.put("despedido", "0");
+            if(jComboBox1.getSelectedItem().equals("Disponible")){
+                map.put("disponible", "1");
                 
             }
-            else if(jComboBox1.getSelectedItem().equals("Inactivo")){
-                map.put("activo", "0");
-                map.put("inactivo", "1");
-                map.put("despedido", "0");
                 
+            else if(jComboBox1.getSelectedItem().equals("No Disponible")){
+                map.put("disponible", "0");
             }
-            else{
-                map.put("activo", "0");
-                map.put("inactivo", "0");
-                map.put("despedido", "1");
-            }
-            
             
             String[] arrayNick = new String[2];
             arrayNick[0]="codigo";
             arrayNick[1]=codigo;
-            db.update("empleado", map, arrayNick);
+            db.update("producto", map, arrayNick);
             //db.actualizar("UPDATE usuario SET nombre=`"+nombreN+"`, password=`"+passwordN+"`WHERE (nick=`"+nickN+"`)");
             //db.excecuteQuery("UPDATE usuario SET nombre=`"+nombreN+"`, password=`"+passwordN+"`WHERE (nick=`"+nickN+"`)");
                        
