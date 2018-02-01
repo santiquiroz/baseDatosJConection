@@ -36,6 +36,11 @@ public class Pedido extends View implements IView{
     }
     
     public void llenar(String telefono){
+        db = new DataBase();
+        
+        ArrayList ultimo = db.excecuteQuery("SELECT * FROM pedido WHERE fecha LIKE (SELECT MAX(fecha) FROM pedido) AND telefono LIKE "+telefono);
+        
+        
         
         Map<String,String> map = new HashMap();
         map.put("telefono",telefono);
@@ -51,8 +56,23 @@ public class Pedido extends View implements IView{
         cabecera[7]="obsequio";
         SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,8).result(),"Pedidos","");
         JInternalFrame frame = new JInternalFrame("pedido viejo");
-      
+        
+        ArrayList hola = (ArrayList) ultimo.get(0);
+        
         //llenando pedido viejo
+        jTextField1.setText((String) hola.get(0));
+        jTextField1.setEditable(false);
+        jTextField2.setText((String) hola.get(1));
+        jTextField2.setEditable(false);
+        jTextField3.setText((String) hola.get(2));
+        jTextField3.setEditable(false);
+        jTextField4.setText((String) hola.get(3));
+        jTextField4.setEditable(false);
+        jTextField11.setText((String) hola.get(4));
+        jTextField11.setEditable(false);
+        jTextField9.setText((String) hola.get(5));
+        jTextField9.setEditable(false);
+        
         viejo.add( frame );
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //Create and set up the content pane.
