@@ -22,6 +22,7 @@ public class EditarEmpleado extends View implements IView{
     String nickUsuario;
     public EditarEmpleado(String puntero) {
         initComponents();
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         cedula=puntero;
         
         DataBase db = new DataBase();

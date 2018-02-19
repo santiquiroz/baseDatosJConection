@@ -21,7 +21,7 @@ public class EliminarEmpleado extends View implements IView{
     String nickUsuario;
     public EliminarEmpleado(String nickUsuario) {
         initComponents();
-        
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.nickUsuario=nickUsuario;
         setVisible(true);
         setTitle("Ventana de administrador");

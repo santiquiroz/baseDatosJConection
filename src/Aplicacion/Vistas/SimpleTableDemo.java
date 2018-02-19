@@ -20,14 +20,25 @@ public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, Str
         this.titulo = titulo;
         this.ventanaObjetivo=ventanaObjetivo;
         
+        
+        
         String[] columnNames = cabecera;
 
         Object[][] data =datos;
        
 
         final JTable table = new JTable(data, columnNames);
-        table.setEnabled(true);
         
+        DefaultTableModel tableModel = new DefaultTableModel(datos, cabecera) {
+
+         @Override
+        public boolean isCellEditable(int row, int column) {
+            //all cells false
+            return false;
+             }
+        };
+        table.setModel(tableModel);
+
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
         

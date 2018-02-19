@@ -21,6 +21,7 @@ public class EditarProducto extends View implements IView{
     String codigo;
     public EditarProducto(String puntero) {
         initComponents();
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         codigo=puntero;
         
         DataBase db = new DataBase();
