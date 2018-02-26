@@ -33,7 +33,6 @@ public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, Str
 
          @Override
         public boolean isCellEditable(int row, int column) {
-            //all cells false
             return false;
              }
         };
@@ -45,9 +44,6 @@ public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, Str
         table.addMouseListener(new MouseAdapter() {
             
                 public void mouseClicked(MouseEvent e) {
-                    //int[] l = table.getSelectedRows();
-                    //int ALGO = table.getSelectedRow();
-                    
                     int row = table.getSelectedRow();
                     int column = 0;  //table.getSelectedColumn();
                     Object puntero = table.getValueAt(row, column);

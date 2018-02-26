@@ -468,6 +468,10 @@ public class DataBase extends Conexion {
      * @param map - map con los atributo en los cuales se buscara
      * @return TRUE si fue posible ingresar valores, FALSE en caso contrario
      */
+    public boolean insertar3(String SQL) {        
+        messageSQL(SQL);
+        return super.insertar(SQL);
+    }
     public boolean insertar2(String tabla, ArrayList map) {
         String SQL = "INSERT INTO " + tabla + " (";
         SQL = setCampos2(SQL, map);

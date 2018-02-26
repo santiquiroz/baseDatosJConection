@@ -41,6 +41,27 @@ public class Fecha {
 		return ano+"/"+mes+"/"+dia+"/"+hora+"/"+minuto+"/"+segundo;
 	}
 	public String toString(String formato){
+                if(formato.equals("D-M-A")){
+			return dia+"-"+mes+"-"+ano;
+		}
+		if(formato.equals("M-D-A")){
+			return mes+"-"+dia+"-"+ano;
+		}
+		if(formato.equals("A-M-D")){
+			return ano+"-"+mes+"-"+dia;
+		}
+		if(formato.equals("M-A-D")){
+			return mes+"-"+ano+"-"+dia;
+		}
+		if(formato.equals("A-M")){
+			return ano+"-"+mes;
+		}
+		if(formato.equals("M-A")){
+			return mes+"-"+ano;
+		}
+		if(formato.equals("M-D")){
+			return mes+"-"+dia;
+                }
 		if(formato.equals("D/M/A")){
 			return dia+"/"+mes+"/"+ano;
 		}

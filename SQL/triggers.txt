@@ -1,0 +1,11 @@
+DELIMITER &&
+CREATE OR REPLACE TRIGGER actualizador_aumentomun 
+AFTER UPDATE ON producto FOR EACH ROw 
+BEGIN 
+IF (OLD.preciobase<>NEW.preciobase) 
+THEN 
+INSERT INTO aumentoprod(fechamodificacion, valor, codigo)VALUES(NOW(), (NEW.preciobase - OLD.preciobase), NEW.codigo); 
+END IF; 
+END;
+
+&&

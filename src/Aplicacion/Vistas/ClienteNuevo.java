@@ -11,6 +11,7 @@ import java.util.ArrayList;
 //import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
@@ -22,78 +23,29 @@ import javax.swing.JOptionPane;
  * @since JConexionDB 1.0
  */
 public class ClienteNuevo extends View implements IView{
-    Administrador administrador;
-    int tipo;
-    Comun comun;
+    
     DataBase db = new DataBase();
    
     
-     public ClienteNuevo(String telefono,Administrador ad, int tipo) {
-        this.tipo = tipo;
-        administrador=ad;
+    public ClienteNuevo(String telefono) {        
         initComponents();
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
-        jTextField1.setText(telefono);
-        jTextField1.setEditable(false);
-        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        //LocalDate localDate = LocalDate.now();
-        //jTextField3.setText(localDate.toString());
-        
-        jTextField3.setText(new Fecha().toString("D/M/A"));
-        
-        jTextField3.setEditable(false);
-        
+        jTextField1.setText(telefono);       
+        jTextField3.setText(new Fecha().toString("A-M-D"));
         setVisible(true);
         setTitle("Cliente nuevo");
         setLocationRelativeTo(null);
         this.setResizable(false);
-    }
-     public ClienteNuevo(String telefono,Comun com, int tipo) {
-        this.tipo = tipo;
-        comun=com;
-        initComponents();
-        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
-        jTextField1.setText(telefono);
-        jTextField1.setEditable(false);
-        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        //LocalDate localDate = LocalDate.now();
-        //jTextField3.setText(localDate.toString());
+        db= new DataBase();
+        ArrayList municipios = db.excecuteQuery("SELECT nombremunicipio FROM municipio");
         
-        jTextField3.setText(new Fecha().toString("D/M/A"));
+        jComboBox2.removeAllItems();
+        DefaultComboBoxModel modeloCombo = new DefaultComboBoxModel();
+        for (int i = 0; i < municipios.size(); i++) {
+            modeloCombo.addElement(((ArrayList)municipios.get(i)).get(0));
+        }
         
-        jTextField3.setEditable(false);
-        
-        setVisible(true);
-        setTitle("Agregar cliente nuevo");
-        setLocationRelativeTo(null);
-        this.setResizable(false);
-    }
-    public ClienteNuevo(String telefono) {
-        
-        initComponents();
-        this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
-        jTextField1.setText(telefono);
-        jTextField1.setEditable(false);
-        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        //LocalDate localDate = LocalDate.now();
-        //jTextField3.setText(localDate.toString());
-        
-        jTextField3.setText(new Fecha().toString("D/M/A"));
-        
-        jTextField3.setEditable(false);
-        
-        setVisible(true);
-        setTitle("Agregar cliente nuevo");
-        setLocationRelativeTo(null);
-        this.setResizable(false);
-    }
-    public ClienteNuevo() {
-        
-        initComponents();
-        setVisible(true);
-        setTitle("Ventana VIP");
-        setLocationRelativeTo(null);
-        this.setResizable(false);
+        jComboBox2.setModel(modeloCombo);
     }
     
     @SuppressWarnings("unchecked")
@@ -111,6 +63,10 @@ public class ClienteNuevo extends View implements IView{
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,19 +88,20 @@ public class ClienteNuevo extends View implements IView{
             }
         });
 
+        jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("TELEFONO");
+        jLabel1.setText("Telefono");
 
-        jLabel3.setText("FECHA DE REGISTRO");
+        jLabel3.setText("Fecha de registro");
 
         jLabel4.setText("PUNTOS");
 
-        jLabel5.setText("NOMBRE");
+        jLabel5.setText("Nombre");
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,69 +109,88 @@ public class ClienteNuevo extends View implements IView{
             }
         });
 
+        jTextField3.setEditable(false);
+
+        jTextField4.setEditable(false);
         jTextField4.setText("0");
+
+        jLabel6.setText("Tipo de usuario");
+
+        jLabel7.setText("Municipio");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "comun", "empresarial" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addGap(99, 99, 99)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton1)
-                                    .addGap(12, 12, 12)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(78, 78, 78)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(99, 99, 99)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(38, 38, 38))
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addComponent(jButton1))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addGap(62, 62, 62))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addGap(44, 44, 44))
+                .addContainerGap())
         );
 
         pack();
@@ -232,40 +208,16 @@ public class ClienteNuevo extends View implements IView{
             String nombre=jTextField2.getText();
             String fecha=jTextField3.getText();
             String puntos=jTextField4.getText();
-            
-            Map<String,String> map = new HashMap();
-            map.put("telefono",telefono);
-            map.put("nombre",nombre);
-            map.put("fecha",fecha);
-            map.put("puntos",puntos);
-                  
-            db.insertar("cliente", map);    
-            
-           /* ArrayList<ArrayList> map = new ArrayList();
-            ArrayList<String> map2 = new ArrayList();
-            map2.add("telefono");
-            map2.add(telefono);
-            map.add(map2);
-            map2=new ArrayList();
-            map2.add("nombre");
-            map2.add(nombre);
-            map.add(map2);
-            map2.add("fecha");
-            map2.add(fecha);
-            map.add(map2);
-            map2.add("puntos");
-            map2.add(puntos);
-            map.add(map2);
-            map.add(map);
-            db.insertar2("cliente", map);
-            new Pedido(telefono);*/
-            if(tipo==1){
-                administrador.jTextField4.setText("");
+            String comun, empresarial;
+            if (jComboBox1.getSelectedItem().equals("comun")) {
+                comun = "1";empresarial="0";
             }
             else{
-                comun.jTextField4.setText("");
+                comun = "0";empresarial="1";
             }
-            
+                 
+            db.insertar3("INSERT INTO cliente(telefono,nombre,fecha,puntos,comun,empresarial,nombremunicipio) VALUES ('"+telefono+"','"+nombre+"',CURRENT_DATE(),'0','"+comun+"','"+empresarial+"','"+jComboBox2.getSelectedItem()+"')");    
+           
             new Pedido(telefono);
             this.dispose();
             
@@ -289,11 +241,15 @@ public class ClienteNuevo extends View implements IView{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
