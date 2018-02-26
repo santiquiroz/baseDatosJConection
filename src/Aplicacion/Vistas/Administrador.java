@@ -1824,7 +1824,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un usuario con tal nick");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 //db.mostrarTerminalTable("usuario");
                 //db.mostrarDialogTable("Usuario");  
             }
@@ -1838,7 +1838,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un usuario con tal nombre");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 
             }             
         }
@@ -1853,7 +1853,7 @@ public class Administrador extends View implements IView{
                    JOptionPane.showMessageDialog(null, "No existe un usuario de tipo administrador");
                 }
                 else{
-                   new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                   new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 }
             }
             else if(jComboBox2.getSelectedItem().equals("Comun")){
@@ -1862,7 +1862,7 @@ public class Administrador extends View implements IView{
                    JOptionPane.showMessageDialog(null, "No existe un usuario de tipo comun");
                }
                else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 }
             
             }
@@ -1875,7 +1875,7 @@ public class Administrador extends View implements IView{
                     JOptionPane.showMessageDialog(null, "No existe un usuario con tal combinacion de nick y nombre");
                 }
                  else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                  }
         }
         else if(b1==false && b2==true && cb1==false){//si sabe nombre y tipo
@@ -1886,7 +1886,7 @@ public class Administrador extends View implements IView{
                    JOptionPane.showMessageDialog(null, "No existe un usuario de tipo administrador con ese nombre");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 }
             }
             else if(jComboBox2.getSelectedItem().equals("Comun")){
@@ -1896,7 +1896,7 @@ public class Administrador extends View implements IView{
                    JOptionPane.showMessageDialog(null, "No existe un usuario de tipo comun con ese nombre");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 }
             }
         }
@@ -1910,7 +1910,7 @@ public class Administrador extends View implements IView{
                         JOptionPane.showMessageDialog(null, "No existe un usuario de tipo administrador con ese nick");
                     }
                      else{
-                        new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                        new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                     }
             }
             else if(jComboBox2.getSelectedItem().equals("Comun")){
@@ -1919,7 +1919,7 @@ public class Administrador extends View implements IView{
                    JOptionPane.showMessageDialog(null, "No existe un usuario de tipo comun con ese nick");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 }
             }
             else{
@@ -1935,7 +1935,7 @@ public class Administrador extends View implements IView{
                    JOptionPane.showMessageDialog(null, "No existe un usuario con tal nick y nombre y que sea de tipo administrador");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 }
             }
             else if(jComboBox2.getSelectedItem().equals("Comun")){
@@ -1944,7 +1944,7 @@ public class Administrador extends View implements IView{
                    JOptionPane.showMessageDialog(null, "No existe un usuario con tal nick y nombre y que sea de tipo comun");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
                 }
             }
         }
@@ -1954,7 +1954,7 @@ public class Administrador extends View implements IView{
                JOptionPane.showMessageDialog(null, "No existe ningun usuario en la DB");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,5).result(), "Usuarios", "",this).createAndShowGUI();
             }
             
         }
@@ -2078,7 +2078,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un producto con esas caracteristicas");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(), "Productos", "EditarProducto").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(), "Productos", "EditarProducto",this).createAndShowGUI();
             }
         }
         else{
@@ -2088,7 +2088,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existen productos registrados");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(), "Productos", "EditarProducto").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(), "Productos", "EditarProducto",this).createAndShowGUI();
             }
         }  
         //reiniciando campos
@@ -2119,7 +2119,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un empleado con tal cedula");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
             }
         }
 
@@ -2131,7 +2131,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un empleado con tal nombre");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
 
             }
         }
@@ -2144,7 +2144,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un empleado con tal telefono");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
 
             }
         }
@@ -2158,7 +2158,7 @@ public class Administrador extends View implements IView{
                     JOptionPane.showMessageDialog(null, "No existe ningun usuario de tipo Activo");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
                 }
             }
             else if(jComboBox3.getSelectedItem().equals("Inactivo")){
@@ -2167,7 +2167,7 @@ public class Administrador extends View implements IView{
                     JOptionPane.showMessageDialog(null, "No existe ningun usuario de tipo inactivo");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
                 }
 
             }
@@ -2178,7 +2178,7 @@ public class Administrador extends View implements IView{
                     JOptionPane.showMessageDialog(null, "No existe ningun usuario de tipo despedido");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleado", "EditarEmpleado").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleado", "EditarEmpleado",this).createAndShowGUI();
                 }
             }
         }
@@ -2191,7 +2191,7 @@ public class Administrador extends View implements IView{
             }
             else{
 
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
             }
         }
         else if(b2==true && b3==false && cb1==true){//si sabe el nombre y tipo
@@ -2202,7 +2202,7 @@ public class Administrador extends View implements IView{
                     JOptionPane.showMessageDialog(null, "No existe un empleado activo con ese nombre");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
                 }
             }
             else if(jComboBox3.getSelectedItem().equals("Inactivo")){
@@ -2211,7 +2211,7 @@ public class Administrador extends View implements IView{
                     JOptionPane.showMessageDialog(null, "No existe un empleado inactivo con ese nombre");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
                 }
             }
             else{
@@ -2220,7 +2220,7 @@ public class Administrador extends View implements IView{
                     JOptionPane.showMessageDialog(null, "No existe un empleado despedido con ese nombre");
                 }
                 else{
-                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                    new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
                 }
             }
         }
@@ -2231,7 +2231,7 @@ public class Administrador extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe ningun empleado");
             }
             else{
-                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado").createAndShowGUI();
+                new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,6).result(), "Empleados", "EditarEmpleado",this).createAndShowGUI();
             }
 
         }

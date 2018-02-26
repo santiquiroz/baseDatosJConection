@@ -33,11 +33,12 @@ import javax.swing.SwingUtilities;
 public class Pedido extends View implements IView{
    DataBase db = new DataBase();
    Fecha fecha = new Fecha();
-   String usuario;
+   String usuario,telefono;
         JInternalFrame frame = new JInternalFrame("pedido viejo");
         JInternalFrame frame2 = new JInternalFrame("pedido nuevo");
         JInternalFrame frame3 = new JInternalFrame("product");
     public Pedido(String telefono,String usrer) {
+        this.telefono=telefono;
         usuario=usrer;
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -128,7 +129,7 @@ public class Pedido extends View implements IView{
             cabecera[2]="peso";
             cabecera[3]="precio";
             cabecera[4]="puntos";
-            SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productos,5).result(),"productos","");
+            SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productos,5).result(),"productos","carrito",this);
             viejo.add( frame );
             SimpleTableDemo newContentPane = new SimpleTableDemo();
             newContentPane.setOpaque(true); //content panes must be opaque
@@ -143,7 +144,7 @@ public class Pedido extends View implements IView{
                 cabecera[2]="peso";
                 cabecera[3]="precio";
                 cabecera[4]="puntos";
-                SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","");
+                SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","carrito",this);
                 viejo.add( frame );
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 SimpleTableDemo newContentPane = new SimpleTableDemo();
@@ -211,7 +212,7 @@ public class Pedido extends View implements IView{
         cabecera[2]="peso";
         cabecera[3]="precio";
         cabecera[4]="puntos";
-        SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","");
+        SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","carrito",this);
         nuevo.add( frame2 );
         frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         SimpleTableDemo newContentPane = new SimpleTableDemo();
@@ -237,7 +238,7 @@ public class Pedido extends View implements IView{
             cabecera[4]="descripcion";
             cabecera[5]="precio base";
             cabecera[6]="disponible";
-            SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productosconsulta,7).result(),"productos","");
+            SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productosconsulta,7).result(),"productos","carrito",this);
             productoslayout.add( frame3 );
             SimpleTableDemo newContentPaneproducto = new SimpleTableDemo();
             newContentPaneproducto.enable(false);
@@ -1188,7 +1189,7 @@ public class Pedido extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un producto con esas caracteristicas");
             }
             else{
-                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","carrito");
+                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","carrito",this);
                 productoslayout.add( frame3 );
                 SimpleTableDemo newContentPaneproducto = new SimpleTableDemo();
                 newContentPaneproducto.enable(false);
@@ -1207,7 +1208,7 @@ public class Pedido extends View implements IView{
                 JOptionPane.showMessageDialog(null,"No existen productos registrados");
             }
             else{
-                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","carrito");
+                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","carrito",this);
                 productoslayout.add( frame3 );
                 SimpleTableDemo newContentPaneproducto = new SimpleTableDemo();
                 newContentPaneproducto.enable(false);

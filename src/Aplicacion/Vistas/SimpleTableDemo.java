@@ -15,7 +15,7 @@ public class SimpleTableDemo extends JPanel {
     
     String ventanaObjetivo;
     
-public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, String ventanaObjetivo) {
+public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, String ventanaObjetivo,JFrame ventanaPadre) {
         super(new GridLayout(1,0));
         this.titulo = titulo;
         this.ventanaObjetivo=ventanaObjetivo;
@@ -61,7 +61,14 @@ public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, Str
                         new EditarProducto((String) puntero);
 
                     }
-                    
+                    else if(ventanaObjetivo.equals ("Carrito")){
+                        
+                        new carrito((String) puntero,(Pedido) ventanaPadre);
+                        
+                        
+                    }
+                            
+                            
                     
                     
                 }

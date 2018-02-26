@@ -7,6 +7,7 @@ import System.MVC.Core.View;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -19,11 +20,11 @@ import javax.swing.JOptionPane;
 public class carrito extends View implements IView{
     DataBase db = new DataBase();
     String codigo, telefono;
-    public carrito(String idprod,String idclient) {
+    public carrito(String idprod,Pedido ventanaPadre) {
         initComponents();
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         codigo=idprod;
-        telefono=idclient;
+        telefono=ventanaPadre.telefono;
         
         DataBase db = new DataBase();
         Map<String,String> map = new HashMap();
@@ -142,12 +143,13 @@ public class carrito extends View implements IView{
                 .addGap(47, 47, 47)
                 .addComponent(jLabel11)
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel39)))
+                        .addComponent(jLabel39))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel32)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
