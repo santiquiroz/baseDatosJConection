@@ -33,7 +33,9 @@ import javax.swing.SwingUtilities;
 public class Pedido extends View implements IView{
    DataBase db = new DataBase();
    Fecha fecha = new Fecha();
+   
    String usuario,telefono;
+   public ArrayList ultimo1,vliente,productos; 
         JInternalFrame frame = new JInternalFrame("pedido viejo");
         JInternalFrame frame2 = new JInternalFrame("pedido nuevo");
         JInternalFrame frame3 = new JInternalFrame("product");
@@ -64,9 +66,12 @@ public class Pedido extends View implements IView{
     }
     
     public void llenar(String telefono){
+       db=new DataBase();
+            
+            vliente = db.excecuteQuery("SELECT * FROM cliente WHERE telefono="+ telefono);
         db = new DataBase();
         //ultimo pedido
-        ArrayList ultimo1 = db.excecuteQuery("SELECT * FROM pedido WHERE fecha LIKE (SELECT MAX(fecha) FROM pedido) AND telefono LIKE "+telefono);
+         ultimo1 = db.excecuteQuery("SELECT * FROM pedido WHERE fecha LIKE (SELECT MAX(fecha) FROM pedido) AND telefono LIKE "+telefono);
         
         
         
@@ -75,9 +80,7 @@ public class Pedido extends View implements IView{
             int ui = ultimo1.size()-1;
             ArrayList hola =  (ArrayList) ultimo1.get(ui);
             System.out.println(hola);
-            db=new DataBase();
             
-            ArrayList vliente = db.excecuteQuery("SELECT * FROM cliente WHERE telefono="+ (String) hola.get(4));
             int eso = vliente.size()-1;
             ArrayList newvliente =  (ArrayList) vliente.get(eso);
             
@@ -119,7 +122,7 @@ public class Pedido extends View implements IView{
             
             db=new DataBase();
             //obteniendo productos que compro la ultima vez
-            ArrayList productos = db.excecuteQuery("SELECT producto.codigo,nombre,peso,precio,puntos FROM productoxpedido INNER JOIN producto ON productoxpedido.codigo = producto.codigo AND fecha LIKE "+"'"+((String)hola.get(0))+"'"+" AND numero LIKE "+"'"+((String)hola.get(1))+"'");
+             productos = db.excecuteQuery("SELECT producto.codigo,nombre,peso,precio,puntos FROM productoxpedido INNER JOIN producto ON productoxpedido.codigo = producto.codigo AND fecha LIKE "+"'"+((String)hola.get(0))+"'"+" AND numero LIKE "+"'"+((String)hola.get(1))+"'");
             int ala = productos.size()-1;
             ArrayList newproductos =  (ArrayList) productos.get(ala);
             System.out.println(productos);
@@ -129,13 +132,14 @@ public class Pedido extends View implements IView{
             cabecera[2]="peso";
             cabecera[3]="precio";
             cabecera[4]="puntos";
-            SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productos,5).result(),"productos","carrito",this);
+            SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productos,5).result(),"productos","Carrito",this,"todaLaFila");
             viejo.add( frame );
             SimpleTableDemo newContentPane = new SimpleTableDemo();
             newContentPane.setOpaque(true); //content panes must be opaque
             frame.setContentPane(viejoSQL);
             frame.setBorder(null);
             ((javax.swing.plaf.basic.BasicInternalFrameUI)frame.getUI()).setNorthPane(null);
+            
         }
         else{
             String[] cabecera= new String[5];
@@ -144,7 +148,7 @@ public class Pedido extends View implements IView{
                 cabecera[2]="peso";
                 cabecera[3]="precio";
                 cabecera[4]="puntos";
-                SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","carrito",this);
+                SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","Carrito",this,"todaLaFila");
                 viejo.add( frame );
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 SimpleTableDemo newContentPane = new SimpleTableDemo();
@@ -153,7 +157,7 @@ public class Pedido extends View implements IView{
                 frame.setBorder(null);
                 ((javax.swing.plaf.basic.BasicInternalFrameUI)frame.getUI()).setNorthPane(null);
         }
-        
+        System.out.println("creo el viejo");
         db=new DataBase();
         jComboBox1.setSelectedItem(db.excecuteQuery("SELECT municipio FROM cliente WHERE telefono = '"+telefono+"'"));
         db=new DataBase();
@@ -212,18 +216,20 @@ public class Pedido extends View implements IView{
         cabecera[2]="peso";
         cabecera[3]="precio";
         cabecera[4]="puntos";
-        SimpleTableDemo viejoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","carrito",this);
+        SimpleTableDemo nuevoSQL= new SimpleTableDemo(cabecera,new Object[0][5],"productos","Carrito",this,"todaLaFila");
         nuevo.add( frame2 );
         frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         SimpleTableDemo newContentPane = new SimpleTableDemo();
         newContentPane.enable(false);        
         newContentPane.setOpaque(true); //content panes must be opaque
-        frame2.setContentPane(viejoSQL);
+        frame2.setContentPane(nuevoSQL);
         frame2.setBorder(null);
         ((javax.swing.plaf.basic.BasicInternalFrameUI)frame2.getUI()).setNorthPane(null);
         frame2.pack();
         
         frame2.setVisible(true);
+        
+        System.out.println("creo el nuevo vacio");
         
         //llenando por defecto la tabla de los productos 
         ArrayList productosconsulta = db.excecuteQuery("SELECT * FROM producto WHERE disponible = 1");
@@ -238,7 +244,7 @@ public class Pedido extends View implements IView{
             cabecera[4]="descripcion";
             cabecera[5]="precio base";
             cabecera[6]="disponible";
-            SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productosconsulta,7).result(),"productos","carrito",this);
+            SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(productosconsulta,7).result(),"productos","Carrito",this,"todaLaFila");
             productoslayout.add( frame3 );
             SimpleTableDemo newContentPaneproducto = new SimpleTableDemo();
             newContentPaneproducto.enable(false);
@@ -248,6 +254,7 @@ public class Pedido extends View implements IView{
             ((javax.swing.plaf.basic.BasicInternalFrameUI)frame3.getUI()).setNorthPane(null);
             frame3.pack();
             frame3.setVisible(true);
+            System.out.println("creo los productos por defecto");
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -699,7 +706,7 @@ public class Pedido extends View implements IView{
                                             .addComponent(jTextField25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jComboBox5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
+                                .addGap(95, 95, 95)
                                 .addComponent(jButton12)
                                 .addGap(117, 117, 117)))))
                 .addGap(220, 220, 220))
@@ -888,7 +895,7 @@ public class Pedido extends View implements IView{
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(123, 123, 123)
-                                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, 576, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
@@ -1189,7 +1196,7 @@ public class Pedido extends View implements IView{
                 JOptionPane.showMessageDialog(null, "No existe un producto con esas caracteristicas");
             }
             else{
-                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","carrito",this);
+                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","Carrito",this,"todaLaFila");
                 productoslayout.add( frame3 );
                 SimpleTableDemo newContentPaneproducto = new SimpleTableDemo();
                 newContentPaneproducto.enable(false);
@@ -1208,7 +1215,7 @@ public class Pedido extends View implements IView{
                 JOptionPane.showMessageDialog(null,"No existen productos registrados");
             }
             else{
-                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","carrito",this);
+                SimpleTableDemo productoSQL= new SimpleTableDemo(cabecera,new ConvertidorAMatriz(datos,7).result(),"productos","Carrito",this,"todaLaFila");
                 productoslayout.add( frame3 );
                 SimpleTableDemo newContentPaneproducto = new SimpleTableDemo();
                 newContentPaneproducto.enable(false);

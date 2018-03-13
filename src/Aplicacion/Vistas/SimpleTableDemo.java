@@ -7,50 +7,118 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 
 public class SimpleTableDemo extends JPanel {
     private boolean DEBUG = false;
     String titulo;
-    
+    JFrame ventanaPadre;
     String ventanaObjetivo;
+    JTable tabla;
     
-public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, String ventanaObjetivo,JFrame ventanaPadre) {
+public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, String ventanaObjetivo,JFrame padre,String ti) {
+        
         super(new GridLayout(1,0));
+        System.out.println("entro a constructor tabla");
         this.titulo = titulo;
         this.ventanaObjetivo=ventanaObjetivo;
-        
+        ventanaPadre=padre;
         
         
         String[] columnNames = cabecera;
 
         Object[][] data =datos;
-       
+        tabla = new JTable(data, columnNames);
 
-        final JTable table = new JTable(data, columnNames);
+        tabla.getTableHeader().setReorderingAllowed(false) ;
         
         DefaultTableModel tableModel = new DefaultTableModel(datos, cabecera) {
-
-         @Override
         public boolean isCellEditable(int row, int column) {
             return false;
              }
         };
-        table.setModel(tableModel);
+        tabla.setModel(tableModel);
 
-        table.setPreferredScrollableViewportSize(new Dimension(500, 70));
-        table.setFillsViewportHeight(true);
+        tabla.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        tabla.setFillsViewportHeight(true);
+        setListener(ti,cabecera.length);
         
-        table.addMouseListener(new MouseAdapter() {
-            
+       
+
+        if (DEBUG) {
+            tabla.addMouseListener(new MouseAdapter() {
+                @Override
                 public void mouseClicked(MouseEvent e) {
-                    int row = table.getSelectedRow();
+                    printDebugData(tabla);
+                }
+            });
+        }
+
+        //Create the scroll pane and add the tabla to it.
+        JScrollPane scrollPane = new JScrollPane(tabla);
+
+        //Add the scroll pane to this panel.
+        add(scrollPane);
+        System.out.println("salio a constructor tabla");
+    }
+    
+    
+    public void setListener(String tipo,int num){
+        System.out.println("entro a setListener");
+        if(tipo.equals("soloIdentificador")){
+            tabla.addMouseListener(new MouseAdapter() {
+                
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    System.out.println("entro a modificacion de listener");
+                    int row = tabla.getSelectedRow();
                     int column = 0;  //table.getSelectedColumn();
-                    Object puntero = table.getValueAt(row, column);
+                    Object puntero = tabla.getValueAt(row, column);
                     System.out.println("seleccionado"); //por si las moscas
                     System.out.println(puntero);
                     
-                    if(ventanaObjetivo.equals ("EditarEmpleado")){
+                    switch (ventanaObjetivo) {
+                        case "EditarEmpleado":
+                            new EditarEmpleado((String) puntero);
+                            break;
+                        case "EditarProducto":
+                            new EditarProducto((String) puntero);
+                            break;
+                        case "Carrito":
+                            new carrito((String) puntero,(Pedido) ventanaPadre);
+                            break;
+                        default:
+                            break;
+                    }
+                            
+                            
+                    
+                    
+                }
+            });
+        }
+        else if(tipo.equals("todaLaFila")){
+            tabla.addMouseListener(new MouseAdapter() {
+            
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    int row = tabla.getSelectedRow();
+                    int column = 0;  //table.getSelectedColumn();
+                    ArrayList datos= new ArrayList();
+                    for (int i = 0;  i < num; i++) {
+                        System.out.println("elgio elemento");
+                        Object dato = tabla.getValueAt(row, i);
+                        System.out.println(dato);
+                        datos.add(dato);
+                    }
+                    
+                    System.out.println("seleccionado"); //por si las moscas
+                    System.out.println(datos);
+                    
+                    /*if(ventanaObjetivo.equals ("EditarEmpleado")){
                       
                         new EditarEmpleado((String) puntero);
 
@@ -61,37 +129,20 @@ public SimpleTableDemo(String [] cabecera, Object[] [] datos, String titulo, Str
                         new EditarProducto((String) puntero);
 
                     }
-                    else if(ventanaObjetivo.equals ("Carrito")){
+                    else if(ventanaObjetivo.equals ("Carrito")){*/
                         
-                        new carrito((String) puntero,(Pedido) ventanaPadre);
+                        new carrito(datos,(Pedido) ventanaPadre,"busqueda");
                         
                         
-                    }
+                    //}
                             
                             
                     
                     
-                }
-            });
-       
-
-        if (DEBUG) {
-            table.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-                    printDebugData(table);
                 }
             });
         }
-
-        //Create the scroll pane and add the table to it.
-        JScrollPane scrollPane = new JScrollPane(table);
-
-        //Add the scroll pane to this panel.
-        add(scrollPane);
     }
-    
-    
-    
     
     public SimpleTableDemo() {
         super(new GridLayout(1,0));
