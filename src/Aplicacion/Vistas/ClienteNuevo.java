@@ -25,9 +25,10 @@ import javax.swing.JOptionPane;
 public class ClienteNuevo extends View implements IView{
     
     DataBase db = new DataBase();
-   
+    String usuario;
     
-    public ClienteNuevo(String telefono) {        
+    public ClienteNuevo(String telefono, String user) {  
+        usuario=user;
         initComponents();
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         jTextField1.setText(telefono);       
@@ -218,7 +219,7 @@ public class ClienteNuevo extends View implements IView{
                  
             db.insertar3("INSERT INTO cliente(telefono,nombre,fecha,puntos,comun,empresarial,nombremunicipio) VALUES ('"+telefono+"','"+nombre+"',CURRENT_DATE(),'0','"+comun+"','"+empresarial+"','"+jComboBox2.getSelectedItem()+"')");    
            
-            new Pedido(telefono);
+            new Pedido(telefono,usuario);
             this.dispose();
             
         }

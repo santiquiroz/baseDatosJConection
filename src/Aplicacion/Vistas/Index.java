@@ -130,8 +130,8 @@ public class Index extends View implements IView{
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(62, 62, 62)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(70, 70, 70)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,12 +243,12 @@ public class Index extends View implements IView{
         boolean b1 = IO.textfield_requerido(jPasswordField2);
 
             if (b1){
-                if(jPasswordField2.getText().equals("onichandaisuki")){
+                if(jPasswordField2.getText().equals("masterkey")){
                     new Vip();
                     this.dispose();
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "MasterKey erronea, Baka!");      
+                    JOptionPane.showMessageDialog(null, "MasterKey erronea");      
                 }  
             }
             else{

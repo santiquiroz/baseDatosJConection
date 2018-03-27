@@ -1,5 +1,5 @@
-package System.Impresion;
-import br.com.adilson.util.*;
+/*package System.Impresion;
+//import br.com.adilson.util.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -41,20 +41,20 @@ public class Impresion implements Printable, ActionListener{
      public int print(Graphics g, PageFormat pf, int page) throws
                                                         PrinterException {
 
-        if (page > 0) { /* We have only one page, and 'page' is zero-based */
+        if (page > 0) { /* We have only one page, and 'page' is zero-based *//*
             return NO_SUCH_PAGE;
         }
 
         /* User (0,0) is typically outside the imageable area, so we must
          * translate by the X and Y values in the PageFormat to avoid clipping
-         */
+         *//*
         Graphics2D g2d = (Graphics2D)g;
         g2d.translate(pf.getImageableX(), pf.getImageableY());
 
-        /* Now we perform our rendering */
+        /* Now we perform our rendering *//*
         g.drawString("Hello world!", 100, 100);
 
-        /* tell the caller that this page is part of the printed document */
+        /* tell the caller that this page is part of the printed document *//*
         return PAGE_EXISTS;
     }
 
@@ -66,7 +66,7 @@ public class Impresion implements Printable, ActionListener{
              try {
                   job.print();
              } catch (PrinterException ex) {
-              /* The job did not successfully complete */
+              /* The job did not successfully complete *//*
              }
          }
     }
@@ -113,9 +113,9 @@ public class Impresion implements Printable, ActionListener{
     
  
 }
-class Impresora{
-    void imprimirFactura(){
-        PrinterMatrix printer = new PrinterMatrix();
+//class Impresora{
+    //void imprimirFactura(){
+       /* PrinterMatrix printer = new PrinterMatrix();
 
         Extenso e = new Extenso();
 
@@ -131,12 +131,12 @@ class Impresora{
         //Imprimir Encabezado nombre del La EMpresa
        printer.printTextWrap(1, 2, 30, 80, "FACTURA DE VENTA");
        //printer.printTextWrap(linI, linE, colI, colE, null);
-       printer.printTextWrap(2, 3, 1, 22, "Num. Boleta : " + "0001" /*txtVentaNumeroFactura.getText()*/);
-       printer.printTextWrap(2, 3, 25, 55, "Fecha de Emision: " + "11/01/2017"/*dateFechaVenta.getDate()*/);
+       printer.printTextWrap(2, 3, 1, 22, "Num. Boleta : " + "0001" /*txtVentaNumeroFactura.getText()*//*);
+       printer.printTextWrap(2, 3, 25, 55, "Fecha de Emision: " + "11/01/2017"/*dateFechaVenta.getDate()*//*);
        printer.printTextWrap(2, 3, 60, 80, "Hora: 12:22:51");
-       printer.printTextWrap(3, 3, 1, 80, "Vendedor.  : "+ "santiago"/*txtVentaIdVendedor.getText() +" - " + txtVentaNombreVendedor.getText()*/);
-       printer.printTextWrap(4, 4, 1, 80, "CLIENTE: " + "3122161625"/*txtVentaNombreCliente.getText()*/);
-       printer.printTextWrap(5, 5, 1, 80, "RUC/CI.: " + "000000"/*txtVentaRucCliente.getText()*/);
+       printer.printTextWrap(3, 3, 1, 80, "Vendedor.  : "+ "santiago"/*txtVentaIdVendedor.getText() +" - " + txtVentaNombreVendedor.getText()*//*);
+       printer.printTextWrap(4, 4, 1, 80, "CLIENTE: " + "3122161625"/*txtVentaNombreCliente.getText()*//*);
+       printer.printTextWrap(5, 5, 1, 80, "RUC/CI.: " + "000000"/*txtVentaRucCliente.getText()*//*);
        printer.printTextWrap(6, 6, 1, 80, "DIRECCION: " + "");
        printer.printCharAtCol(7, 1, 80, "=");
        printer.printTextWrap(7, 8, 1, 80, "Codigo          Descripcion                Cant.      P  P.Unit.      P.Total");
@@ -164,12 +164,12 @@ class Impresora{
 
         if(filas > 15){
         printer.printCharAtCol(filas + 1, 1, 80, "=");
-        printer.printTextWrap(filas + 1, filas + 2, 1, 80, "TOTAL A PAGAR " + "200000"/*txtVentaTotal.getText()*/);
+        printer.printTextWrap(filas + 1, filas + 2, 1, 80, "TOTAL A PAGAR " + "200000"/*txtVentaTotal.getText()*//*);
         printer.printCharAtCol(filas + 2, 1, 80, "=");
         printer.printTextWrap(filas + 2, filas + 3, 1, 80, "Esta boleta no tiene valor fiscal, solo para uso interno.: + Descripciones........");
         }else{
         printer.printCharAtCol(25, 1, 80, "=");
-        printer.printTextWrap(26, 26, 1, 80, "TOTAL A PAGAR " + "30000"/*txtVentaTotal.getText()*/);
+        printer.printTextWrap(26, 26, 1, 80, "TOTAL A PAGAR " + "30000"/*txtVentaTotal.getText()*//*);
         printer.printCharAtCol(27, 1, 80, "=");
         printer.printTextWrap(27, 28, 1, 80, "Esta boleta no tiene valor fiscal, solo para uso interno.: + Descripciones........");
 
@@ -246,3 +246,4 @@ class PrintJobWatcher {
     }
   }  
 }
+*/

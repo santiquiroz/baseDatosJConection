@@ -102,10 +102,11 @@ PRIMARY KEY(fecha,numero)
 CREATE TABLE PRODUCTOXPEDIDO(
 precio VARCHAR(20),
 puntos VARCHAR(20),
+consecutivo VARCHAR(20),
 fecha VARCHAR(20) REFERENCES PEDIDO(fecha) ON DELETE CASCADE,
 numero VARCHAR(20) REFERENCES PEDIDO(numero) ON DELETE CASCADE,
 codigo VARCHAR (20)REFERENCES PRODUCTO(codigo) ON DELETE CASCADE,
-PRIMARY KEY (fecha,numero,codigo)
+PRIMARY KEY (fecha,numero,codigo,consecutivo)
 );
 
 CREATE TABLE HCLIENTEXPRODUCTO(
@@ -127,6 +128,7 @@ PRIMARY KEY (telefono,codigo,fechamodificacion)
 CREATE TABLE STATIC(
 codigo VARCHAR(20),
 limPuntos VARCHAR(20),
+puntosxkilo VARCHAR(20),
 obsequio VARCHAR(20),
 condonable VARCHAR(20)
 );
